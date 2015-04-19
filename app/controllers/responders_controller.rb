@@ -27,15 +27,15 @@ class RespondersController < ApplicationController
   end
 
   def new
-    not_found
+    render_not_found
   end
 
   def edit
-    not_found
+    render_not_found
   end
 
   def destroy
-    not_found
+    render_not_found
   end
 
   private
