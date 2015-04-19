@@ -20,6 +20,11 @@ class RespondersController < ApplicationController
   end
 
   def show
+    responder = Responder.find_by(name: params[:name])
+
+    render_not_found and return unless responder.present?
+
+    render json: responder, status: :ok
   end
 
   def update
