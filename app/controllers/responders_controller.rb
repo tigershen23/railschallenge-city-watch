@@ -9,7 +9,7 @@ class RespondersController < ApplicationController
     if responder.save
       render json: responder, status: 201, serializer: responder.active_model_serializer
     else
-      render json: { message: responder.errors.as_json }, status: 422
+      render json: { message: responder.errors.as_json }, status: :unprocessable_entity
     end
 
   end
@@ -48,6 +48,6 @@ class RespondersController < ApplicationController
     unpermitted_params = params[:responder].keys - responder_params.keys
     return if unpermitted_params.empty?
 
-    render json: { message: "found unpermitted parameter: #{unpermitted_params.first}"}, status: 422
+    render json: { message: "found unpermitted parameter: #{unpermitted_params.first}"}, status: :unprocessable_entity
   end
 end
