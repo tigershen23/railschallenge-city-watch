@@ -11,7 +11,6 @@ class RespondersController < ApplicationController
     else
       render_unprocessable_entity(message: responder.errors.as_json)
     end
-
   end
 
   def index

@@ -5,4 +5,3 @@ class ResponderSerializer < ActiveModel::Serializer
   attributes :capacity
   attributes :on_duty
 end
-
