@@ -4,7 +4,10 @@ class RespondersController < ApplicationController
 
     if responder.save
       render json: responder, status: 201, serializer: responder.active_model_serializer
+    else
+      render json: { message: responder.errors.as_json }, status: 422
     end
+
   end
 
   def index

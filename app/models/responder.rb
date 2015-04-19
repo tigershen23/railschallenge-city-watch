@@ -1,4 +1,6 @@
 class Responder < ActiveRecord::Base
-  # Avoid STI; all Responders behave the same
+  validates :name, uniqueness: true
+
+  # Avoid STI; all types of Responders behave the same for now
   self.inheritance_column = nil
 end
