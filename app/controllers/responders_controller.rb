@@ -15,6 +15,9 @@ class RespondersController < ApplicationController
   end
 
   def index
+    responders = Responder.all
+
+    render json: responders, status: :ok
   end
 
   def show
