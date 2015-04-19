@@ -1,5 +1,10 @@
 class RespondersController < ApplicationController
   def create
+    responder = Responder.new(responder_params)
+
+    if responder.save
+      render json: responder, status: 201, serializer: responder.active_model_serializer
+    end
   end
 
   def index
@@ -21,5 +26,11 @@ class RespondersController < ApplicationController
 
   def destroy
     not_found
+  end
+
+  private
+
+  def responder_params
+    params.require(:responder).permit(:type, :name, :capacity)
   end
 end

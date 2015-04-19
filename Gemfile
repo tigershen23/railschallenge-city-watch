@@ -5,8 +5,7 @@ gem 'rails-api'
 
 gem 'sqlite3', '1.3.10'
 
-gem 'jbuilder', '~> 2.0'
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.8.3'
 
 group :development, :test do
   gem 'rubocop', '0.30.0'
