@@ -21,12 +21,7 @@ class Responder < ActiveRecord::Base
   # returns a Hash with keys being Responder ID's
   # and values being their corresponding capacity
   def self.able_to_respond_capacities
-    capacities = {}
-    able_to_respond.pluck(:id, :capacity).each do |id, capacity|
-      capacities[id] = capacity
-    end
-
-    capacities
+    Hash[able_to_respond.pluck(:id, :capacity)]
   end
 
   def self.sum_capacity

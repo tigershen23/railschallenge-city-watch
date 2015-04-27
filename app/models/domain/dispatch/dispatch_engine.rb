@@ -16,7 +16,7 @@ module Domain
       def optimal_responders
         responder_ids = []
         ::Responder::TYPES.each do |type|
-          responder_ids << optimal_responders_for_type(ActiveRecord::Base.const_get("::#{type}"))
+          responder_ids << optimal_responders_for_type("::#{type}".constantize)
         end
 
         ::Responder.where(id: responder_ids.flatten!)

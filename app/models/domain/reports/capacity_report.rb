@@ -19,7 +19,7 @@ module Domain
       def self.calculate
         capacity = {}
         ::Responder::TYPES.each do |type|
-          capacity[type] = calculate_for_type(type)
+          capacity[type] = capacity_for_type(type)
         end
 
         capacity
@@ -27,7 +27,7 @@ module Domain
 
       # Return an array of availabilities for one Responder type, e.g.
       # [3, 3, 2, 2] for Fire in the example for .calculate
-      def self.calculate_for_type(type)
+      def self.capacity_for_type(type)
         klass = type.constantize
 
         [
